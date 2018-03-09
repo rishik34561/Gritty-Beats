@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3>Here is a list of the genres that you could use:</h2>
+
+        {% for genre in genres %}
+
+        	<ul>
+        		<li>{{ genre }}</li>
+        	</ul> 
+
+        {% endfor %}
+
+{% endblock %}
