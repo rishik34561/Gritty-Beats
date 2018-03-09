@@ -2,14 +2,12 @@
 
 {% block content %}
 
-    <h3>Here is a list of the genres that you could use:</h2>
-
-        {% for genre in genres %}
-
-        	<ul>
-        		<li>{{ genre }}</li>
-        	</ul> 
-
-        {% endfor %}
-
+    <h3>Here is a list of currently imported genres:</h2>
+    <ul>
+    {% for genre in genres %}
+    	<li>{{ genre }}</li>
+    {% endfor %}
+    </ul>
+    <p>You will need to add (at least) two more genres to this list. Check out helpers.py and get started!</p>
+    
 {% endblock %}

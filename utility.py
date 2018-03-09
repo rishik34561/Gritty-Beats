@@ -1,14 +1,43 @@
+"""
+utility.py contains functions that are already implemented for you. To use them,
+make sure to add the appropriate import statement to the top of the other file.
+
+For example, if "get_four_choices" is needed, we would add the following statement
+to the top of our Python file:
+
+from utility import get_four_choices
+"""
+
 from flask import session
-import billboard, random, requests
-
+import random, requests
 
 """
-REQUIRES: chart is a valid Chart instance from the Billboard API
+REQUIRES: a valid iterable object (such as a list)
 MODIFIES: nothing
-EFFECTS: returns four unique numbers between 0 and the size of the chart passed in
+EFFECTS: returns four unique objects from the list. For example, if we give it
+         the list:
+
+        [
+            "Brady",
+            "Gaurav",
+            "Dania",
+            "Divya",
+            "Hiromichi",
+            "Jordan",
+            "Kirtana",
+            "Michelle",
+            "Tan"
+        ]
+
+        ...this function might return:
+
+        ["Brady", "Dania", "Kirtana", "Michelle"]
+        ["Gaurav", "Hiromichi", "Jordan", "Kirtana"]
+
+        ...so on and so forth.
 """
-def get_four_choices(chart):
-    return random.sample(range(0,len(chart)), 4)
+def get_four_choices(data):
+    return random.sample(range(0,len(data)), 4)
 
 """
 REQUIRES: a valid title and artist
@@ -31,4 +60,3 @@ def get_preview_url(title, artist):
             "title": title,
             "url": json['results'][0]['previewUrl']
         }
-
