@@ -9,7 +9,8 @@ chart IDs for Billboard to use.
 
 TODO: Add at least two more genres to this dictionary. Information on how to find
       more Billboard chart IDs is on the Billboard library documentation, as
-      linked on the core page of the spec. 
+      linked on the core page of the spec. Make sure you only choose charts that
+      contain SONGS (not artists, albums, etc.).
 """
 GENRES_LIST = {
     "Current Pop Hits": "hot-100",
