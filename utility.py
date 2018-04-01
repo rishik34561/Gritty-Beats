@@ -14,27 +14,9 @@ import random, requests
 """
 REQUIRES: a valid iterable object (such as a list)
 MODIFIES: nothing
-EFFECTS: returns four unique objects from the list. For example, if we give it
-         the list:
-
-        [
-            "Brady",
-            "Gaurav",
-            "Dania",
-            "Divya",
-            "Hiromichi",
-            "Jordan",
-            "Kirtana",
-            "Michelle",
-            "Tan"
-        ]
-
-        ...this function might return:
-
-        ["Brady", "Dania", "Kirtana", "Michelle"]
-        ["Gaurav", "Hiromichi", "Jordan", "Kirtana"]
-
-        ...so on and so forth.
+EFFECTS: returns a list of four random unique integers within the length of the iterable object. 
+         For instance, if you pass in a list of 50 objects, it will return four non-repeating integers [0,50) 
+         (i.e. [1, 45, 8, 25])
 """
 def get_four_choices(data):
     return random.sample(range(0,len(data)), 4)
