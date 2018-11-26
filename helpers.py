@@ -41,7 +41,10 @@ MODIFIES: nothing
 EFFECTS: returns a string with the score to print
 """
 def get_score():
-    pass
+    score = str(num_correct)
+    score += " / "
+    score += str(num_total)
+    return score
 
 """
 REQUIRES: nothing
@@ -49,4 +52,6 @@ MODIFIES: num_correct, num_total in session
 EFFECTS: sets the num_correct and num_total to 0
 """
 def clear_score():
-    pass
+    num_correct = 0
+    num_total = 0
+    return
