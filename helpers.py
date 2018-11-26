@@ -1,5 +1,6 @@
 # Add more import statements as you need them!
 from utility import get_four_choices
+import billboard
 
 """
 Our dictionary to hold which genres we are giving to our users. Play around with
@@ -15,7 +16,9 @@ TODO: Add at least two more genres to this dictionary. Information on how to fin
 GENRES_LIST = {
     "Current Pop Hits": "hot-100",
     "Dance Club Hits": "dance-club-play-songs",
-    "Country Classics": "greatest-country-songs"
+    "Country Classics": "greatest-country-songs",
+    "Greatest of All Time Hot 100 Singles": "greatest-hot-100-singles",
+    "Hot R&B/Hip-Hop Songs": "r-b-hip-hop-songs"
 }
 
 """
@@ -27,8 +30,11 @@ EFFECTS: chooses four random songs from the valid Billboard chart and returns
          the top of the file to access its member functions?
 """
 def get_four_songs(chart_name):
-    pass
-
+    chart = billboard.ChartData(chart_name)
+    randomNumList = get_four_choices(chart)
+    randomSongList = [chart[randomNumList[0]],chart[randomNumList[1]],chart[randomNumList[2]],chart[randomNumList[3]]]
+    return randomSongList
+    
 """
 REQUIRES: nothing
 MODIFIES: nothing
