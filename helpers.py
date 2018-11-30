@@ -21,6 +21,7 @@ GENRES_LIST = {
     "Hot R&B/Hip-Hop Songs": "r-b-hip-hop-songs"
 }
 
+
 """
 REQUIRES: a valid chart name that corresponds to a chart name on Billboard
 MODIFIES: nothing
@@ -34,12 +35,15 @@ def get_four_songs(chart_name):
     randomNumList = get_four_choices(chart)
     randomSongList = [chart[randomNumList[0]],chart[randomNumList[1]],chart[randomNumList[2]],chart[randomNumList[3]]]
     return randomSongList
-    
+
 """
 REQUIRES: nothing
 MODIFIES: nothing
 EFFECTS: returns a string with the score to print
 """
+num_correct = 0
+num_total = 0
+
 def get_score():
     score = str(num_correct)
     score += " / "

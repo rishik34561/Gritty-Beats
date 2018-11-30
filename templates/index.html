@@ -3,14 +3,19 @@
 {% block content %}
 
     <h2>Choose a genre:</h2>
-    <form>
+    <form action="/question" method="GET">
         <select name="genres">
             {% for genre in genres %}
                 <option>{{genre}}</option>
             {% endfor %}
+            <input type="submit">
         </select>
     </form>
 
+<<<<<<< HEAD
+{% endblock %} 
+=======
    <a href="question.html"><button>Submit</button></a>
 
 {% endblock %}
+>>>>>>> 487c5f5af3270ee6a60cb84cea1935d13181da1e
