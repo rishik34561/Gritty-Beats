@@ -4,5 +4,5 @@ from helpers import GENRES_LIST
 from helpers import get_score
 from helpers import clear_score
 @app.route('/clear')
-def question():
+def clear():
     return render_template("clear.html")

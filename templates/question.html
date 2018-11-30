@@ -1,24 +1,24 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
-    <!DOCTYPE html>
-    <html>
-        <body>
-            <h1>Question Page</h1>
-            <h2>Which song is playing?</h2>
-            <form action="/answer" method = "POST">
-                <audio controls>
-                    <source src = '{{ preview }}'>
-                </audio>
-                {% for question in questions %}
-                <input type="radio" name="choice" value = '{{question}}'>
-                <br>
-                {% endfor %}
-                <input type="hidden" id = song_choice name = "song_choice">
-                <input type="submit" value="Submit">
-            </form>
-        </body>
-    </html>
+<!DOCTYPE html>
+<html>
+   <body>
+       <h1>Question Page</h1>
+       <h2>Which song is playing?</h2>
+       <form action="/answer" method = "POST">
+           <audio controls>
+               <source src = '{{ preview }}'>
+           </audio>
+           {% for question in questions %}
+           <input type="radio" name="choice" value = '{{question}}'>
+           <br>
+           {% endfor %}
+           <input type="hidden" id = song_choice name = "song_choice">
+           <input type="submit" value="Submit">
+       </form>
+   </body>
+</html>
 
 {% endblock %}
