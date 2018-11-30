@@ -9,7 +9,6 @@ import random
 
 @app.route('/question', methods=['GET'])
 def question():
-<<<<<<< HEAD
     trial = request.args['genres']
     trial = GENRES_LIST[trial]
     song_list = get_four_songs(trial)
@@ -29,6 +28,3 @@ def question():
     }
     
     return render_template("question.html", **data)
-=======
-    return render_template("question.html", **data)
->>>>>>> 487c5f5af3270ee6a60cb84cea1935d13181da1e
