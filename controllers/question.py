@@ -26,5 +26,5 @@ def question():
         "preview": song_url,
         "genres": GENRES_LIST
     }
-
+    
     return render_template("question.html", **data)
