@@ -3,14 +3,13 @@
 {% block content %}
 
     <h2>Choose a genre:</h2>
-    <form>
+    <form action="/question" method="GET">
         <select name="genres">
             {% for genre in genres %}
                 <option>{{genre}}</option>
             {% endfor %}
+            <input type="submit">
         </select>
     </form>
-
-   <a href="question.html"><button>Submit</button></a>
 
 {% endblock %} 
