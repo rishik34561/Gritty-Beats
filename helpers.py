@@ -59,3 +59,4 @@ def clear_score():
     num_correct = 0
     num_total = 0
     return
+

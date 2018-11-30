@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Would you like to clear your score?</h2>
+<form action="">
+    <div>
+    <input type="radio" name="choice" value="Yes" id="button1"> Male<br>
+    <input type="radio" name="choice" value="No" id = "button2"> Female<br>
+    <script>
+    var button1 = document.getElementById("button1");
+    var button2 = document.getElementById("button2");
+
+    if (button1.checked){
+        clear_score();
+    }
+</script>
+</div>
+  </form>
+
+   <a href="index.html"><button>Submit</button></a>
+{% endblock %}
