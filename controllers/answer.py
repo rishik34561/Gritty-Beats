@@ -7,7 +7,8 @@ from helpers import get_four_songs
 from utility import get_preview_url
 from question import correct_song
 
+
 @app.route('/answer', methods=['POST'])
 def answer():
-    if correct_song == choice:
+    if request.args['questions'] == correct_song:
         correct = True

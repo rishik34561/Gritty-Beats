@@ -24,7 +24,8 @@ def question():
     data = {
         "questions": song_list,
         "preview": song_url,
-        "genres": GENRES_LIST
+        "genres": GENRES_LIST,
+        "correct_song": correct_song
     }
     
     return render_template("question.html", **data)
