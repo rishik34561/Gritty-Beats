@@ -9,5 +9,10 @@ from question import correct_song
 
 @app.route('/answer', methods=['POST'])
 def answer():
-    if correct_song == choice:
+    if correct_song == ##choice:
         correct = True
+        num_correct += 1
+    else:
+        correct = False
+    num_total += 1
+
