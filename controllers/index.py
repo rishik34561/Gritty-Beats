@@ -4,7 +4,7 @@ from flask import render_template
 from helpers import GENRES_LIST
 from helpers import get_score
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
 
     data = {

@@ -2,12 +2,18 @@
 
 {% block content %}
 
-    <h2> <b> Correct! </b> </h2>
+   <h2> <b> Correct! </b> </h2>
     <br>
 
-    <p> The answer is </p> 
+    <p> The answer is </p>
+    <!-- write the answer -->
 
     <a href="question.html"> Try again? </a>
+    <br>
     <a href="index.html"> Change genre </a>
+
+    <form action="/clear" method="GET">
+        <input type="submit" value = "Clear Score" name="Clear Score">
+    </form>
 
 {% endblock %}

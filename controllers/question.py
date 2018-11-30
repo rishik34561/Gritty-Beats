@@ -13,9 +13,9 @@ def question():
     trial = GENRES_LIST[trial]
     song_list = get_four_songs(trial)
     song_choice = random.choice(song_list)
-    i = 0
-    while get_preview_url(song_choice.title, song_list[i].artist):
-        song_list = get_four_songs(trial)
+
+    while not get_preview_url(song_choice.title, song_choice.artist):
+        song_list = get_four_songs(x)
         song_choice = random.choice(song_list)
 
     song = get_preview_url(song_choice.title, song_choice.artist)
