@@ -5,4 +5,4 @@ from helpers import get_score
 
 @app.route('/question')
 def question():
-    return render_template("question.html")
+    return render_template("question.html", **data)
