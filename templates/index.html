@@ -8,8 +8,13 @@
             {% for genre in genres %}
                 <option>{{genre}}</option>
             {% endfor %}
+            <br>
             <input type="submit">
         </select>
+    </form>
+    <br>
+    <form action="/clear" method="GET">
+        <input type="submit" value = "Clear Score" name="Clear Score">
     </form>
 
 {% endblock %} 

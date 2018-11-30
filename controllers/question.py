@@ -9,9 +9,9 @@ import random
 
 @app.route('/question', methods=['GET'])
 def question():
-    x = request.args['genres']
-    x = GENRES_LIST[x]
-    song_list = get_four_songs(x)
+    trial = request.args['genres']
+    trial = GENRES_LIST[trial]
+    song_list = get_four_songs(trial)
     song_choice = random.choice(song_list)
 
     while not get_preview_url(song_choice.title, song_choice.artist):
@@ -26,5 +26,5 @@ def question():
         "preview": song_url,
         "genres": GENRES_LIST
     }
-
+    
     return render_template("question.html", **data)
