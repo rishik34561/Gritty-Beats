@@ -5,7 +5,9 @@ from helpers import GENRES_LIST
 from helpers import get_score
 from helpers import get_four_songs
 from utility import get_preview_url
+from question import correct_song
 
 @app.route('/answer', methods=['POST'])
 def answer():
-    
+    if correct_song == choice:
+        correct = True

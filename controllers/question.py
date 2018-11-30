@@ -12,13 +12,13 @@ def question():
     x = request.args['genres']
     x = GENRES_LIST[x]
     song_list = get_four_songs(x)
-    song_choice = random.choice(song_list)
+    correct_song = random.choice(song_list)
 
-    while not get_preview_url(song_choice.title, song_choice.artist):
+    while not get_preview_url(correct_song.title, correct_song.artist):
         song_list = get_four_songs(x)
-        song_choice = random.choice(song_list)
+        correct_song = random.choice(song_list)
 
-    song = get_preview_url(song_choice.title, song_choice.artist)
+    song = get_preview_url(correct_song.title, correct_song.artist)
     song_url = song["url"]
 
     data = {

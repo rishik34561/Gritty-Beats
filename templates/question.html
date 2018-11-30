@@ -13,10 +13,10 @@
                 </audio>
                 <br>
                 {% for question in questions %}
-                <input type="radio" name="choice" value = '{{question}}'>
+                <input type="radio" name="choice" value = '{{question}}'>{{question}}
                 <br>
                 {% endfor %}
-                <input type="hidden" id = song_choice name = "song_choice">
+                <input type="hidden" value = "correct_song" name = "correct_song">
                 <input type="submit" value="Submit">
             </form>
         </body>
