@@ -41,8 +41,8 @@ REQUIRES: nothing
 MODIFIES: nothing
 EFFECTS: returns a string with the score to print
 """
-num_correct = 0
-num_total = 0
+session['num_correct'] = 0
+session['num_total'] = 0
 
 def get_num_correct():
     return num_correct
@@ -73,4 +73,3 @@ def clear_score():
     num_correct = 0
     num_total = 0
     return
-

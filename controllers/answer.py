@@ -16,20 +16,19 @@ from question import *
 
 @app.route('/answer', methods=['GET'])
 def answer():
-    num_correct = get_num_correct()
     user_answer = request.args["choice"]
     correct_song = request.args['correct_song']
 
     if user_answer == correct_song:
         correct = "Correct!"
-        set_num_correct(num_correct + 1)
+        session['num_correct'] += 1
     else:
         correct = "Incorrect!"
-    num_total = get_num_total()
-    set_num_total(num_total + 1)
+    session['num_total'] += 1
 
     data = {'correct': correct,
             'correct_song': correct_song
+            session['num_correct']: num_correct
+            session['num_total']: num_total
     }
     return render_template("answer.html",**data)
-
