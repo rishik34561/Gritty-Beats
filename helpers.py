@@ -61,5 +61,5 @@ MODIFIES: num_correct, num_total in session
 EFFECTS: sets the num_correct and num_total to 0
 """
 def clear_score():
-    return "N/A"
+    score = "N/A"
     

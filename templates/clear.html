@@ -4,14 +4,19 @@
 <h2>Would you like to clear your score?</h2>
 <form action="">
     <div>
-    <input type="radio" name="choice" value="Yes" id="button1"> Yes<br>
+    <input type="radio" name="choice" value="Yes" id="button1" onclick = "clearscore();"> Yes<br>
     <input type="radio" name="choice" value="No" id = "button2"> No<br>
     <script>
     var button1 = document.getElementById("button1");
     var button2 = document.getElementById("button2");
     if (button1.checked){
-            score = clear_score();
-    }
+        score = "N/A";
+    };
+    var score2 = "{{score}}";
+    function clearscore(){
+        score = "N/A";
+        
+    };
     </script>
     </div>
 </form>
