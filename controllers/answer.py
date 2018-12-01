@@ -1,6 +1,7 @@
 from app import app
 from flask import request
 from flask import render_template
+from flask import session
 from helpers import GENRES_LIST
 from helpers import get_score
 from helpers import get_four_songs
@@ -13,14 +14,13 @@ from helpers import set_num_total
 from question import get_song_list
 from question import *
 
-@app.route('/answer', methods=['POST'])
+@app.route('/answer', methods=['GET'])
 def answer():
     num_correct = get_num_correct()
-    correct_song = get_correct_song()
-    song_list = get_song_list()
-    y = request.form.get('questions')
-    y = song_list[y]
-    if y == correct_song:
+    user_answer = request.args["choice"]
+    correct_song = request.args['correct_song']
+
+    if user_answer == correct_song:
         correct = "Correct!"
         set_num_correct(num_correct + 1)
     else:
