@@ -44,7 +44,21 @@ EFFECTS: returns a string with the score to print
 num_correct = 0
 num_total = 0
 
+def get_num_correct():
+    return num_correct
+
+def set_num_correct(x):
+    num_correct = x
+
+def get_num_total():
+    return num_total
+
+def set_num_total(x):
+    num_total = x
+
 def get_score():
+    if num_total == 0:
+        return "N/A"
     score = str(num_correct)
     score += " / "
     score += str(num_total)
