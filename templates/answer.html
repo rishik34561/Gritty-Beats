@@ -6,7 +6,9 @@
     <br>
 
     <p> The answer is <b> {{correct_song}} </b> </p>
-
+    <form action="/question" method="GET">
+        <input type="submit" value = "Try again?" name="{{correct_genre}}">
+    </form>
     <a href="/question"> Try again? </a>
     <br>
     <br>

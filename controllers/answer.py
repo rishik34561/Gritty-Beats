@@ -18,17 +18,19 @@ from question import *
 def answer():
     user_answer = request.args["choice"]
     correct_song = request.args['correct_song']
+    correct_genre = request.args['correct_genre']
 
     if user_answer == correct_song:
         correct = "Correct!"
-        session['num_correct'] += 1
+        #session['num_correct'] += 1
     else:
         correct = "Incorrect!"
-    session['num_total'] += 1
+    #session['num_total'] += 1
 
     data = {'correct': correct,
-            'correct_song': correct_song
-            session['num_correct']: num_correct
-            session['num_total']: num_total
+            'correct_song': correct_song,
+            'correct_genre': correct_genre,
+            #'num_correct': session['num_correct'],
+            #'num_total': session['num_total']
     }
     return render_template("answer.html",**data)
