@@ -19,7 +19,7 @@ GENRES_LIST = {
     "Dance Club Hits": "dance-club-play-songs",
     "Country Classics": "greatest-country-songs",
     "Greatest of All Time Hot 100 Singles": "greatest-hot-100-singles",
-    "Hot R&B/Hip-Hop Songs": "r-b-hip-hop-songs"
+    "Hot R and B/Hip Hop Songs": "r-b-hip-hop-songs"
 }
 
 
@@ -34,13 +34,9 @@ EFFECTS: chooses four random songs from the valid Billboard chart and returns
 def get_four_songs(chart_name):
     chart = billboard.ChartData(chart_name)
     choices = get_four_choices(chart)
-    
-    song1 = chart[choices[0]]
-    song2 = chart[choices[1]]
-    song3 = chart[choices[2]]
-    song4 = chart[choices[3]]
-    songs_chosen = [song1, song2, song3, song4]
-    return songs_chosen
+    #get four songs from return value of four choices
+    songs_list = [chart[choices[0]],chart[choices[1]],chart[choices[2]],chart[choices[3]]]
+    return songs_list
 
 """
 REQUIRES: nothing
@@ -51,6 +47,7 @@ EFFECTS: returns a string with the score to print
 
 
 def get_score():
+    #to avoid divide by zero error
     if session['num_total'] == 0:
         return "N/A"
     score = str(session['num_correct'])
@@ -64,6 +61,5 @@ MODIFIES: num_correct, num_total in session
 EFFECTS: sets the num_correct and num_total to 0
 """
 def clear_score():
-    session['num_correct'] -= session['num_correct']
-    #session['num_total'] = 0
+    return "N/A"
     

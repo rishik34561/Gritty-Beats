@@ -15,25 +15,25 @@ def question():
     chart_title = request.args["chart_name"]
     chart_name = GENRES_LIST[chart_title]
 
-    url_info = {"error": "Song not found"}
+    #initialize url to error
+    urlin = {"error": "Song not found"}
     
-    while "error" in url_info:
+    #keep getting new url until no error
+    while "error" in urlin:
         songs_chosen = get_four_songs(chart_name)
         index = random.randint(0,3)
         correct_song = songs_chosen[index]
-        url_info =get_preview_url(correct_song.title, correct_song.artist)
+        urlin = get_preview_url(correct_song.title, correct_song.artist)
+    song_url = urlin["url"]
 
-    
-    song_url = url_info["url"]
 
-    score = get_score()
 
     data = {
         "song_answers": songs_chosen,
-        "song_url_right": song_url,
+        "chartname": chart_name,
+        "charttitle": chart_title,
+        "songurl_correct": song_url,
         "correct_song": correct_song,
-        "chart_title": chart_title,
-        "chart": chart_name
     }
-    
+    score = get_score()
     return render_template("question.html", score = score, **data)

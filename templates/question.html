@@ -3,7 +3,7 @@
 {% block content %}
 
     <audio controls>
-        <source src = '{{ song_url_right }}' type = "audio/mpeg">
+        <source src = '{{ songurl_correct }}' type = "audio/mpeg">
     </audio>
 
     <form action = "/answer" method = "GET">
@@ -13,7 +13,7 @@
             {% endfor %}
 
                 <input type="hidden" name="correct_choice" value = "{{correct_song}}">
-                <input type="hidden" name = "correct_genre" value="{{chart_title}}">
+                <input type="hidden" name = "correct_genre" value="{{charttitle}}">
                 <input type = "submit">
         
     

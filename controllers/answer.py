@@ -10,18 +10,20 @@ from question import *
 
 @app.route('/answer', methods=['GET'])
 def answer():
+    #get user input from choice
     player_answer = request.args["choice"]
     correct_choice = request.args["correct_choice"]
     genre_correct = request.args["correct_genre"]
 
+    #compare correct answer with player answer
+    #if player answer is correct, add to num_correct
     if player_answer == correct_choice:
         player_is_correct = True
         session['num_correct'] += 1
-        session['num_total'] += 1
     else:
         player_is_correct = False
-        session['num_total'] += 1
-    score = get_score()
+    #regardless of correct or not, add one to total
+    session['num_total'] += 1
 
     data = {
         "our_song" : correct_choice,
@@ -32,4 +34,5 @@ def answer():
         "num_correct" : session['num_correct'],
         "genre_correct" : genre_correct
     }
+    score = get_score()
     return render_template("answer.html",score=score,**data)

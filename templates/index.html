@@ -2,16 +2,20 @@
 
 {% block content %}
 
-    <h3>Choose a genre:</h3>
-    <form action="/question" method="get">
+    <h2>Choose a genre:</h2>
+
+    <form action="/question" method="GET">
+
         <select name="chart_name"> {{song_url}}
     {% for genre in genres %}
         <option value = "{{genre}}">{{genre}}</option>
     {% endfor %}
         </select>
+
         <input type="hidden" name="chart" value="{{genre}}">
     <input type="submit">
     </form>
+    
     <form action="/clear" method="GET">
         <input type="submit" value = "Clear Score" name="Clear Score">
     </form>
