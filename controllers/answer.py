@@ -6,31 +6,30 @@ from helpers import GENRES_LIST
 from helpers import get_score
 from helpers import get_four_songs
 from utility import get_preview_url
-from question import get_correct_song
-from helpers import get_num_correct
-from helpers import set_num_correct
-from helpers import get_num_total
-from helpers import set_num_total
-from question import get_song_list
 from question import *
 
 @app.route('/answer', methods=['GET'])
 def answer():
-    user_answer = request.args["choice"]
-    correct_song = request.args['correct_song']
-    correct_genre = request.args['correct_genre']
+    player_answer = request.args["choice"]
+    correct_choice = request.args["correct_choice"]
+    genre_correct = request.args["correct_genre"]
 
-    if user_answer == correct_song:
-        correct = "Correct!"
-        #session['num_correct'] += 1
+    if player_answer == correct_choice:
+        player_is_correct = True
+        session['num_correct'] += 1
+        session['num_total'] += 1
     else:
-        correct = "Incorrect!"
-    #session['num_total'] += 1
+        player_is_correct = False
+        session['num_total'] += 1
+    score = get_score()
 
-    data = {'correct': correct,
-            'correct_song': correct_song,
-            'correct_genre': correct_genre,
-            #'num_correct': session['num_correct'],
-            #'num_total': session['num_total']
+    data = {
+        "our_song" : correct_choice,
+        "song" : player_answer,
+        "choice" : correct_choice,
+        "is_correct" : player_is_correct,
+        "num_total" : session['num_total'],
+        "num_correct" : session['num_correct'],
+        "genre_correct" : genre_correct
     }
-    return render_template("answer.html",**data)
+    return render_template("answer.html",score=score,**data)

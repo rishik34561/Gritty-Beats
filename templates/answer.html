@@ -2,20 +2,20 @@
 
 {% block content %}
 
-    <h2> <b> {{correct}} </b> </h2>
-    <br>
+    {% if is_correct %}
+        <h3>Correct</h3>
+    {% else %}
+        <h3>Incorrect</h3>
+    {% endif %}
 
-    <p> The answer is <b> {{correct_song}} </b> </p>
-    <form action="/question" method="GET">
-        <input type="submit" value = "Try again?" name="{{correct_genre}}">
-    </form>
-    <a href="/question"> Try again? </a>
-    <br>
-    <br>
-    <a href="/"> Change genre </a>
-    <br>
-    <br>
 
+    <p> The answer is 
+        <b>{{our_song}}</b>
+    </p>
+    <a href = "/question?chart_name={{genre_correct}}">Try again?</a>
+    <br>
+    <a href = "/">Change genre</a>
+    <br>
     <form action="/clear" method="GET">
         <input type="submit" value = "Clear Score" name="Clear Score">
     </form>

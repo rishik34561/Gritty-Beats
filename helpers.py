@@ -1,5 +1,6 @@
 # Add more import statements as you need them!
 from utility import get_four_choices
+from flask import session
 import billboard
 
 """
@@ -32,36 +33,29 @@ EFFECTS: chooses four random songs from the valid Billboard chart and returns
 """
 def get_four_songs(chart_name):
     chart = billboard.ChartData(chart_name)
-    randomNumList = get_four_choices(chart)
-    randomSongList = [chart[randomNumList[0]],chart[randomNumList[1]],chart[randomNumList[2]],chart[randomNumList[3]]]
-    return randomSongList
+    choices = get_four_choices(chart)
+    
+    song1 = chart[choices[0]]
+    song2 = chart[choices[1]]
+    song3 = chart[choices[2]]
+    song4 = chart[choices[3]]
+    songs_chosen = [song1, song2, song3, song4]
+    return songs_chosen
 
 """
 REQUIRES: nothing
 MODIFIES: nothing
 EFFECTS: returns a string with the score to print
 """
-#session['num_correct'] = 0
-#session['num_total'] = 0
 
-def get_num_correct():
-    return num_correct
 
-def set_num_correct(x):
-    num_correct = x
-
-def get_num_total():
-    return num_total
-
-def set_num_total(x):
-    num_total = x
 
 def get_score():
-    if num_total == 0:
+    if session['num_total'] == 0:
         return "N/A"
-    score = str(num_correct)
+    score = str(session['num_correct'])
     score += " / "
-    score += str(num_total)
+    score += str(session['num_total'])
     return score
 
 """
@@ -70,6 +64,6 @@ MODIFIES: num_correct, num_total in session
 EFFECTS: sets the num_correct and num_total to 0
 """
 def clear_score():
-    num_correct = 0
-    num_total = 0
-    return
+    session['num_correct'] -= session['num_correct']
+    #session['num_total'] = 0
+    

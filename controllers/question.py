@@ -10,33 +10,30 @@ import billboard
 
 correct_song = 0
 song_list = [None]
-@app.route('/question', methods=['GET'])
+@app.route('/question', methods=['GET','POST'])
 def question():
-    chart_title = request.args['genres']
+    chart_title = request.args["chart_name"]
     chart_name = GENRES_LIST[chart_title]
-    song_list = get_four_songs(chart_name)
-    correct_song = random.choice(song_list)
 
-    while not get_preview_url(correct_song.title, correct_song.artist):
-        song_list = get_four_songs(chart_name)
-        correct_song = random.choice(song_list)
+    url_info = {"error": "Song not found"}
+    
+    while "error" in url_info:
+        songs_chosen = get_four_songs(chart_name)
+        index = random.randint(0,3)
+        correct_song = songs_chosen[index]
+        url_info =get_preview_url(correct_song.title, correct_song.artist)
 
-    song = get_preview_url(correct_song.title, correct_song.artist)
-    song_url = song["url"]
+    
+    song_url = url_info["url"]
+
+    score = get_score()
 
     data = {
-        "questions": song_list,
-        "preview": song_url,
-        "genres": GENRES_LIST,
+        "song_answers": songs_chosen,
+        "song_url_right": song_url,
         "correct_song": correct_song,
         "chart_title": chart_title,
         "chart": chart_name
     }
     
-    return render_template("question.html", **data)
-
-def get_correct_song():
-    return correct_song
-
-def get_song_list():
-    return song_list
+    return render_template("question.html", score = score, **data)

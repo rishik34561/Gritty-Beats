@@ -5,4 +5,5 @@ from helpers import get_score
 from helpers import clear_score
 @app.route('/clear', methods=['GET'])
 def clear():
-    return render_template("clear.html")
+    score = get_score()
+    return render_template("clear.html", score=score)

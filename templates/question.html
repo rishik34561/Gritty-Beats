@@ -2,25 +2,23 @@
 
 {% block content %}
 
-    <!DOCTYPE html>
-    <html>
-        <body>
-            <h1>Question Page</h1>
-            <h2>Which song is playing?</h2>
-            <form action="/answer" method = "GET">
-                <audio controls>
-                    <source src ="{{ preview }}">
-                </audio>
-                <br>
-                {% for question in questions %}
-                <input type="radio" name="choice" value ="{{question}}">{{question}}
-                <br>
-                {% endfor %}
-                <input type="hidden" name = "correct_song" value = "{{correct_song}}">
-                <input type="hidden" name = "correct_genre" value = "{{correct_genre}}">
-                <input type="submit" value="Submit">
-            </form>
-        </body>
-    </html>
+    <audio controls>
+        <source src = '{{ song_url_right }}' type = "audio/mpeg">
+    </audio>
 
+    <form action = "/answer" method = "GET">
+    
+            {% for song in song_answers %}
+                <input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br>
+            {% endfor %}
+
+                <input type="hidden" name="correct_choice" value = "{{correct_song}}">
+                <input type="hidden" name = "correct_genre" value="{{chart_title}}">
+                <input type = "submit">
+        
+    
+    </form>
+    <form action="/clear" method="GET">
+        <input type="submit" value = "Clear Score" name="Clear Score">
+    </form>
 {% endblock %}
