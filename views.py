@@ -18,3 +18,4 @@ from index import *
 from question import *
 from clear import *
 from answer import *
+from intermediate import *

@@ -1,7 +1,9 @@
 from app import app
 from flask import render_template
+from flask import request
 from helpers import GENRES_LIST
 from helpers import get_score
+from helpers import clear_score
 from flask import session
 
 @app.route('/', methods=['GET'])
@@ -12,9 +14,11 @@ def index():
 
     if 'num_total' not in session:
         session['num_total'] = 0
-
+        
     data = {
         "genres": GENRES_LIST,
     }
-    score= get_score()
+
+    score = get_score()
+
     return render_template("index.html", score=score, **data)
