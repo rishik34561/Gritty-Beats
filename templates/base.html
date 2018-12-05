@@ -6,6 +6,7 @@
     {% endblock %}
   </head>
   <body>
+    <!--Facebook Sharing API-->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -14,6 +15,34 @@
       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!--Twitter Sharing API-->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+    <!--Pinterest Saving API-->
+    <!--
+    <script
+    type="text/javascript"
+    async defer
+    src="//assets.pinterest.com/js/pinit.js"
+    ></script>
+  -->
+
     <div id="header">
       <h1>DJ 183</h1>
       <p>Choose a genre and try to guess the correct song!<p>
@@ -22,6 +51,28 @@
     <div id="content">{% block content %}{% endblock %}</div>
     <p>Current Score: {{score}}</p>
 
-    <div class="fb-share-button" data-href="http://gritty-beats.herokuapp.com/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgritty-beats.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+    <!--Facebook Sharing Button-->
+    <div class="fb-share-button" data-href="http://gritty-beats.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgritty-beats.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+    <br> <br>
+
+    <!--Twitter Sharing Button-->
+    <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?url=http://gritty-beats.herokuapp.com/"
+    data-size="large">
+    Tweet</a>
+
+    <br> <br>
+
+    <!--Pinterest Saving Button-->
+    <!--<a href="https://www.pinterest.com/pin/create/button/?url=http://gritty-beats.herokuapp.com/" data-pin-do="buttonBookmark" data-pin-tall="True"></a>
+    -->
+
+    <!--Tumblr Sharing API + Button -->
+    <!--
+    <a class="tumblr-share-button" data-color="blue" data-notes="right" href="http://tumblr.com/widgets/share/tool?canonicalUrl=http://gritty-beats.herokuapp.com/"></a>
+    <script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
+    -->
   </body>
 </html>
