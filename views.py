@@ -19,3 +19,5 @@ from question import *
 from clear import *
 from answer import *
 from intermediate import *
+from askname import *
+from recordscore import *

@@ -21,5 +21,19 @@
 <form action="/clear" method="GET">
     <input type="submit" value = "Clear Score" name="Clear Score">
 </form>
+
+<table id="leaderboard">
+    <h3>Leaderboard</h3>
+        <tr>
+          <th>Username</th>
+          <th>High Score</th> 
+        </tr>
+        {% for i in score_list %}
+        <tr>
+            <th>{{i}}</th>
+            <th>{{score_list[i]}}</th>
+        </tr>
+        {% endfor %}
+</table>
     
 {% endblock %} 

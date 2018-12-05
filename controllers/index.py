@@ -5,6 +5,7 @@ from helpers import GENRES_LIST
 from helpers import get_score
 from helpers import clear_score
 from flask import session
+from firebase import firebase
 
 @app.route('/', methods=['GET'])
 def index():
@@ -14,9 +15,13 @@ def index():
 
     if 'num_total' not in session:
         session['num_total'] = 0
-        
+
+    db_cursor = firebase.FirebaseApplication('https://dj-183-c7447.firebaseio.com/',None)
+    score_list = db_cursor.get('/',None)
+    
     data = {
         "genres": GENRES_LIST,
+        "score_list": score_list
     }
 
     score = get_score()
