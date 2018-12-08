@@ -16,12 +16,11 @@ def recordscore():
     score = get_score()
     score.replace(" ", "")
     index = score.find('/')
-    num_correct = float(score[0:index])
+    num_correct = int(score[0:index])
     print "num_correct = ", num_correct
-    num_total = float(score[index+1:])
     if username in score_list:
         user_score = db_cursor.get('/',username)
-        prev_correct = float(user_score)
+        prev_correct = int(user_score)
         if num_correct > prev_correct:
             print "new score > old score"
             db_cursor.put('/',username,num_correct)
