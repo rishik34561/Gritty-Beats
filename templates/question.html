@@ -9,14 +9,14 @@
     <form action = "/answer" method = "GET">
     
             {% for song in song_answers %}
+
                 <input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br>
             {% endfor %}
 
                 <input type="hidden" name="correct_choice" value = "{{correct_song}}">
                 <input type="hidden" name = "correct_genre" value="{{charttitle}}">
                 <input type = "submit">
-        
-    
+   
     </form>
     <form action="/clear" method="GET">
         <input type="submit" value = "Clear Score" name="Clear Score">
@@ -90,6 +90,11 @@
         p {
             font-size: 25px;
             font-family: Snell Roundhand, cursive;
+            color: white;
+        }
+        
+        
+        input[type="hidden"]{
             color: white;
         }
             </style>
