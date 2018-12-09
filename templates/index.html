@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<!--Facebook Sharing Button-->
+<div class="fb-share-button" data-href="http://gritty-beats.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgritty-beats.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+<br> <br>
+
+<!--Twitter Sharing Button-->
+<div class="twitter-share-button"><a class="twitter-share-button"
+href="https://twitter.com/intent/tweet?url=http://gritty-beats.herokuapp.com/"
+data-size="large">
+Tweet</a></div>
+
+<br> <br>
+
+<!--Pinterest Saving Button-->
+<div class="pinterest-share-button"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-media = "http://gritty-beats.herokuapp.com/" data-pin-tall="True"></a></div>
+
+
 <div class="snowflakes">
     <h2>Choose a genre:</h2>
 
@@ -26,7 +44,7 @@
     <h3>Leaderboard (The Legends)</h3>
         <tr>
           <th>Player</th>
-          <th>High Score</th> 
+          <th>High Score</th>
         </tr>
         {% for i in score_list %}
         <tr>
@@ -35,7 +53,7 @@
         </tr>
         {% endfor %}
 </table>
-    
+
 <head>
         <style>
             input[type=submit]{
@@ -78,13 +96,13 @@
             position:relative;
             top:1px;
         }
-        body{ 
+        body{
             height: 100%;
             background: radial-gradient(red,black);
             background-attachment: fixed;
-            background-color: #ffffdd;                  
+            background-color: #ffffdd;
             background-position: center center;
-          
+
             }
          h1{
           color:#cc0000;
@@ -118,14 +136,14 @@
         table {
             width: 100%;
         }
-        
+
         table.menu {
             width: auto;
             margin-right: 0px;
             margin-left: auto;
         }
-    
+
         </style>
 </head>
 </div>
-{% endblock %} 
+{% endblock %}
