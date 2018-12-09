@@ -10,7 +10,7 @@
     
             {% for song in song_answers %}
 
-                <input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br>
+                <div class="song-choices"><input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br></div>
             {% endfor %}
 
                 <input type="hidden" name="correct_choice" value = "{{correct_song}}">
@@ -97,6 +97,9 @@
         
         input[type="hidden"]{
             color: white;
+        }
+        div.song-choices {
+            color:white;
         }
             </style>
     </head>
