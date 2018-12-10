@@ -14,8 +14,6 @@
           margin: 4px 2px;
           cursor: pointer;
         }
-
-
         </style>
         </head>
   <head>
@@ -33,7 +31,6 @@
       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
     <!--Twitter Sharing API-->
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
@@ -43,36 +40,26 @@
       js.id = id;
       js.src = "https://platform.twitter.com/widgets.js";
       fjs.parentNode.insertBefore(js, fjs);
-
       t._e = [];
       t.ready = function(f) {
         t._e.push(f);
       };
-
       return t;
     }(document, "script", "twitter-wjs"));</script>
-
     <!--Pinterest Saving API-->
-
     <script
     type="text/javascript"
     async defer
     src="//assets.pinterest.com/js/pinit.js"
     ></script>
-
-
     <div id="header">
       <h1>The Gritty Beats Music Game</h1>
       <p>Choose a genre, and try to guess the correct song!<p>
     </div>
-
     <div id="content">{% block content %}{% endblock %}</div>
     <p>Current Score: {{score}}</p>
 
-
-    
   </body>
-
   <head>
     <style>
       input[type=submit]{
@@ -132,13 +119,11 @@
             font-family: Chalkduster, fantasy;
             font-size: 30px;
         }
-
         h3 {
             font-family: Luminari, fantasy;
             color: white;
             font-size: 25px;
         }
-
         p {
             font-size: 25px;
             font-family: Snell Roundhand, cursive;
@@ -155,7 +140,6 @@
 <<<<<<< HEAD
             height: 20px;
 =======
-
 >>>>>>> 546c6adaedd068f6de46236baeab782b2dd704a6
           }
         div.twitter-share-button {
@@ -167,9 +151,7 @@
           position: fixed;
           top: 7%;
           right: 0;
-
         }
-
         </style>
 </head>
 </html>
