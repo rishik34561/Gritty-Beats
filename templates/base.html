@@ -61,14 +61,37 @@
     src="//assets.pinterest.com/js/pinit.js"
     ></script>
     <div id="header">
-      <h1>The Gritty Beats Music Game</h1>
+      <div class="container"><div class="row"><div class="col-1"></div><div class="col-10">
+      <h1>The Gritty Beats Music Game</h1> <div class="col-1"></div> </div></div></div>
       <p>Choose a genre, and try to guess the correct song!<p>
     </div>
     <div id="content">{% block content %}{% endblock %}</div>
     <p>Current Score: {{score}}</p>
   </body>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+    * {
+        box-sizing: border-box;
+      }
+      [class*="col-"] {
+        float: left;
+        padding: 15px;
+      }
+
+      .col-1 {width: 8.33%;}
+      .col-2 {width: 16.66%;}
+      .col-3 {width: 25%;}
+      .col-4 {width: 33.33%;}
+      .col-5 {width: 41.66%;}
+      .col-6 {width: 50%;}
+      .col-7 {width: 58.33%;}
+      .col-8 {width: 66.66%;}
+      .col-9 {width: 75%;}
+      .col-10 {width: 83.33%;}
+      .col-11 {width: 91.66%;}
+      .col-12 {width: 100%;}
+
       input[type=submit]{
             -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
             -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
