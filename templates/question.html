@@ -10,7 +10,7 @@
 
             {% for song in song_answers %}
 
-                <div class="container-fluid"><div class="row"><div class="col-4"></div><div class="col-4"><div class="song-choices"><input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br><div class="col-4"></div> </div></div></div></div>
+                <div class="container-fluid"><div class="row"><div class="col-md-4"></div><div class="col-md-4"><div class="song-choices"><input type = "radio" name = "choice" value = "{{song}}"> {{song}} <br><div class="col-md-4"></div> </div></div></div></div>
             {% endfor %}
 
                 <input type="hidden" name="correct_choice" value = "{{correct_song}}">
