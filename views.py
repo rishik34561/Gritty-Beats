@@ -21,3 +21,6 @@ from answer import *
 from intermediate import *
 from askname import *
 from recordscore import *
+from getGenres import *
+from persistScore import *
+from getLeaderboard import *

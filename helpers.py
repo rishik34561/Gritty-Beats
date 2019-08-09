@@ -2,6 +2,7 @@
 from utility import get_four_choices
 from flask import session
 import billboard
+import json
 
 """
 Our dictionary to hold which genres we are giving to our users. Play around with
@@ -22,6 +23,12 @@ GENRES_LIST = {
     "Hot R and B/Hip Hop Songs": "r-b-hip-hop-songs"
 }
 
+GENRES_NAMES = ["Current Pop Hits", 
+"Dance Club Hits", 
+"Country Classics", 
+"Greatest of All Time Hot 100 Singles", 
+"Hot R and B/Hip Hop Songs"]
+
 
 """
 REQUIRES: a valid chart name that corresponds to a chart name on Billboard
@@ -36,6 +43,8 @@ def get_four_songs(chart_name):
     choices = get_four_choices(chart)
     #get four songs from return value of four choices
     songs_list = [chart[choices[0]],chart[choices[1]],chart[choices[2]],chart[choices[3]]]
+    #for song in songs_list:
+       # print(song)
     return songs_list
 
 """
@@ -64,3 +73,4 @@ def clear_score():
     session['num_correct'] = 0
     session['num_total'] = 0
     
+
